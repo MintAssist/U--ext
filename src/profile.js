@@ -11,7 +11,6 @@ const apiClient = require("./api/apiClient")
 
 const {
 	accessTokenKey,
-	tmpCurrentUserKey
 } = require("./api/base")
 
 const localsStorageUtil = require("./utils/localStorage")
@@ -32,21 +31,14 @@ async function fetchUserProfile() {
 			window.location.href = "popup.html";
 		}
 
-		const tmpCurrentUserStr = localsStorageUtil.getItemWithExpiry(tmpCurrentUserKey)
 		let userProfile = null
 
-		if (!tmpCurrentUserStr) {
-			const response = await apiClient.get("u/me")
-			if (response.status !== 200) {
-				window.location.href = "popup.html";
-			}
-
-			const result = response.data;
-			userProfile = result.data.user;
-			localsStorageUtil.setItemWithExpiry(tmpCurrentUserKey, userProfile, 2 * 60)
-		} else {
-			userProfile = tmpCurrentUserStr
+		const response = await apiClient.get("u/me")
+		if (response.status !== 200) {
+			window.location.href = "popup.html";
 		}
+		const result = response.data;
+		userProfile = result.data.user;
 
 		
 		const accInfoDiv = document.getElementById("accountProfile");
