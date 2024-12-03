@@ -13,8 +13,6 @@ const {
 	accessTokenKey,
 } = require("./api/base")
 
-const localsStorageUtil = require("./utils/localStorage")
-
 
 async function fetchUserProfile() {
 	const isLoggedIn = localStorage.getItem("isLoggedIn");
