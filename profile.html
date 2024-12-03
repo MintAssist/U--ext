@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Profile</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<style>
+
+		.container {
+			max-width: 400px;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<header class="body-header">
+			<div class="row flex-nowrap justify-content-center align-items-center">
+				<div class="text-center">
+					<img src="/logo.png" width="60" height="60" alt="Logo">
+				</div>
+			</div>
+			<nav>
+				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					<!-- Tab nút Profile -->
+					<button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+						type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
+						<i class="bi bi-person"></i>
+					</button>
+					<!-- Tab nút Setting -->
+					<button class="nav-link" id="nav-setting-tab" data-bs-toggle="tab" data-bs-target="#nav-setting"
+						type="button" role="tab" aria-controls="nav-setting" aria-selected="false">
+						<i class="bi bi-gear"></i>
+					</button>
+				</div>
+			</nav>
+		</header>
+		
+		<main>
+			<div class="d-flex flex-column bd-highlight mb-3" style="height: 250px;">
+				<div class="toast-container position-fixed top-0 end-0 p-3" id="toast-container">
+					<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+						<div class="toast-header">
+							<strong class="me-auto">Notification</strong>
+							<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+						</div>
+						<div class="toast-body" id="toast-message">
+						</div>
+					</div>
+				</div>
+				<div class="tab-content mt-3" id="nav-tabContent">
+					<!-- Nội dung tab Profile -->
+					<div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+						style="height: 200px;">
+						<h5>Account Profile</h5>
+						<div id="accountProfile" class="mt-2 p-2 bd-highligh">
+							<div class="d-flex justify-content-center">
+								<div class="spinner-border" role="status">
+									<span class="visually-hidden">Loading...</span>
+								</div>
+							</div>
+						</div>
+						<div class="mt-auto p-2 bd-highlight">
+							<button id="moreDetail" class="btn btn-info" style="color: white; width: 100%;">More Detail</button>
+						</div>
+					</div>
+		
+					<!-- Nội dung tab Setting -->
+					<div class="tab-pane fade" id="nav-setting" role="tabpanel" aria-labelledby="nav-setting-tab"
+						style="height: 200px;">
+						<h5>Settings</h5>
+						<div id="configForm" class="mt-2 p-2 bd-highlight">
+							<div class="mb-3">
+								<label for="currentLanguage" class="form-label">Origin Language</label>
+								<select class="form-select" id="currentLanguage">
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="targetLanguage" class="form-label">Dict Language (if translation is needed)</label>
+								<select class="form-select" id="targetLanguage">
+									<option value="">None</option>
+								</select>
+							</div>
+						</div>
+						<div class="mt-auto p-2 bd-highlight">
+							<button class="btn btn-primary" style="width: 100%;" id="saveSettingsButton">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>
+
+	<script src="profile.js"></script>
+</body>
+
+</html>
